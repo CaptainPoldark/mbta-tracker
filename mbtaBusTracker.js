@@ -60,13 +60,13 @@ async function addMarkers(map){
     'layout': {
     'icon-image': 'bus',
     // get the title name from the source's "title" property
-        'text-field': ['get', 'id'],
+        'text-field': ['upcase', ['get', 'id']],
         'icon-image':'bus',
         'text-font': [
         'Open Sans Semibold',
         'Arial Unicode MS Bold'
         ],
-    'text-offset': [0, 1.25],
+    'text-offset': [0, 1],
     'text-anchor': 'top',
     }
 });
@@ -77,12 +77,12 @@ else{
 
 }
     //moveMarkers();
-	setTimeout(addMarkers,15000);
+	setTimeout(addMarkers,5000);
 }
 
 // Request bus data from MBTA
 async function getBusLocations(){
-	var url = 'https://api-v3.mbta.com/vehicles?api_key=ca34f7b7ac8a445287cab52fb451030a&filter[route]=1&include=trip';	
+	var url = 'https://api-v3.mbta.com/vehicles?api_key=4ec74667795b4d148b04426d5bae4fe9&filter[route]=1&include=trip';	
 	var response = await fetch(url);
 	var json     = await response.json();
 	return json.data;
