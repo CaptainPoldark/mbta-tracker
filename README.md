@@ -14,10 +14,10 @@ assets\styles\styles.css
 v1.1
 
 ### Roadmap
-Icons will change depending on whether the bus is moving or stopped
-Hover over the icon, and a level meter will show how full the bus is
-Mark for next stop will be displayed for each bus and estimated time from the stop
-Optional overlay to select and show a bus route trace
+Icons will change depending on whether the bus is moving or stopped.
+Hover over the icon, and a level meter will show how full the bus is.
+Mark for next stop will be displayed for each bus and estimated time from the stop.
+Optional overlay to select and show a bus route trace.
 
 ### Credits
 
