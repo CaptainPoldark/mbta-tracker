@@ -19,7 +19,8 @@ Hover over the icon, and a level meter will show how full the bus is
 Mark for next stop will be displayed for each bus and estimated time from the stop
 Optional overlay to select and show a bus route trace
 
-###Credits
+### Credits
+
 Jonathankyle Brooks
 
 #### Tags
