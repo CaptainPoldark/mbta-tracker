@@ -16,6 +16,56 @@ body{
     font-family: 'Roboto', sans-serif;
     z-index: -1;
 }
+.navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #1d1d1d;
+    padding: 0 10vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.25);
+    z-index: 9;
+}
+
+.brand{
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
+.links-container{
+    display: flex;
+    list-style: none;
+}
+
+.link{
+    text-transform: capitalize;
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 10px;
+    position: relative;
+}
+
+.link:hover:not(.active){
+    opacity: 0.2;
+    color: whitesmoke;
+    
+}
+
+.link.active::after,
+.seperator::after{
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #fff;
+}
 .home-content{
     padding: 5%;
     text-align: center;
