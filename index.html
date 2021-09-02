@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>City of Boston live bus tracker</title>
+        <link rel="shortcut icon" type="image/jpg" href="assets\images\icon.jpg" />
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+        
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+        <link href='assets\styles\styles.css' rel='stylesheet' />
+    </head>
+        <body>
+            <div class="home">
+                <div class="home-content">
+                    <h1 class="home-heading"><span class="highlight"> hi, </span>thanks for checking out my City of Boston bus tracker</h1>
+                    <p class="project-caption">This project demonstrates the use of using the MapBox GL API, an asynchronous data fetch from the MBTA API to get bus information in json format, creating and manipulating geojson files, plotting the busses on the map, and updating the bus locations every 15 seconds.</p>
+                    <p class="project-caption"></p>
+                </div>
+            </div>
+            <div class="seperator"></div>
+            <div id="map"></div>
+            <div class="map-overlay top">
+            <div class="social">
+                <a href="https://www.linkedin.com/in/jonathankyle-brooks/" target="_blank">
+                    <button class="icon-linkedin"
+                    <i class="fa-linkedin">in</i>
+                    </button></a>
+        
+                    <a href="https://github.com/CaptainPoldark" target="_blank">
+                    <button class="icon-github"
+                    
+                    </button></a>
+            </div>
+            <script src='mbtaBusTracker.js'></script>
+        </body>
+</html>

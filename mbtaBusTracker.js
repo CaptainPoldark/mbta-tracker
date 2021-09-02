@@ -1,5 +1,6 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiY2FwdGFpbnBvbGRhcmsiLCJhIjoiY2tzNmRuOHFlMDBhNzJub2M2aDFxbGpmcSJ9.hBTk7JKnxnYAHI8Kc8aeHQ';
 
+
 var map;
 var marker;
 const markers = [];
@@ -18,11 +19,7 @@ function init(){
     zoom: 14
     })
     //this.map.loadImage(busImage);
-    this.map.loadImage('https://github.com/CaptainPoldark/jonathankyle/blob/main/assets/images/bus.png', (error, image) => {
-if (error) throw error;
-// Add the loaded image to the style's sprite with the ID 'kitten'.
-this.map.addImage('kitten', image);
-});
+
  addMarkers(map);
 }
 
@@ -61,10 +58,10 @@ async function addMarkers(map){
     'type': 'symbol',
     'source': 'markers',
     'layout': {
-    'icon-image': 'kitten',
+    'icon-image': 'bus',
     // get the title name from the source's "title" property
         'text-field': ['get', 'id'],
-        'icon-image':'kitten',
+        'icon-image':'bus',
         'text-font': [
         'Open Sans Semibold',
         'Arial Unicode MS Bold'
@@ -106,7 +103,7 @@ function addMarker(bus){
     'occupancy': bus.attributes.occupancy_status,
     'marker-color': '#26ad36',
     'marker-size': 'small',
-    'icon-image': 'rocket'
+    'icon-image': 'bus'
     }
     };
     
