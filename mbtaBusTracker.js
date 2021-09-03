@@ -8,7 +8,15 @@ const geojson = {
         "type": "FeatureCollection", "features": markers
     }
 
-//var busImage = 'https://github.com/mapbox/mapbox-gl-styles/blob/master/sprites/basic-v8/_svg/bus-15.svg'
+    const layerList = document.getElementById('menu');
+    const inputs = layerList.getElementsByTagName('input');
+     
+    for (const input of inputs) {
+    input.onclick = (layer) => {
+    const layerId = layer.target.id;
+    map.setStyle('mapbox://styles/mapbox/' + layerId);
+    };
+    }
 
 
 function init(){
