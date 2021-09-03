@@ -19,7 +19,7 @@ function init(){
     zoom: 14
     })
     //this.map.loadImage(busImage);
-
+    
  addMarkers(map);
 }
 
@@ -58,11 +58,10 @@ async function addMarkers(map){
     'type': 'symbol',
     'source': 'markers',
     'layout': {
-    'icon-image': 'bus',
     // get the title name from the source's "title" property
-        'text-field': ['upcase', ['get', 'id']],
-        'icon-image':'bus',
-        'text-font': [
+    'text-field': ['upcase', ['get', 'id']],
+    'icon-image':'bus',
+    'text-font': [
         'Open Sans Semibold',
         'Arial Unicode MS Bold'
         ],
@@ -71,12 +70,37 @@ async function addMarkers(map){
     }
 });
 }
+    
 else{
-        let data = this.map.getSource('markers');
+        
         this.map.getSource('markers').setData(geojson);
 
-}
-    //moveMarkers();
+    }
+     
+    let popup = new mapboxgl.Popup({
+        closeButton: false,
+        closeOnClick: false
+        });
+
+        this.map.on('mouseenter', 'markers', (e) => {
+            // Change the cursor style as a UI indicator.
+            this.map.getCanvas().style.cursor = 'pointer';
+             
+            // Copy coordinates array.
+            let coordinates = e.features[0].geometry.coordinates.slice();
+
+            //call getDescription to fill popup
+            let description = getDescription(e);
+            // Populate the popup and set its coordinates
+            // based on the feature found.
+            popup.setLngLat(coordinates).setHTML(description).addTo(this.map);
+            });
+             
+            this.map.on('mouseleave', 'markers', () => {
+            this.map.getCanvas().style.cursor = '';
+            popup.remove();
+            });
+
 	setTimeout(addMarkers,5000);
 }
 
@@ -98,15 +122,24 @@ function addMarker(bus){
     },
     'properties': {
     'title':bus.id,
+    "icon": {
+        "iconUrl": "/mapbox.js/assets/images/astronaut1.png",
+        "iconSize": [50, 50], // size of the icon
+        "iconAnchor": [25, 25], // point of the icon which will correspond to marker's location
+        "popupAnchor": [0, -25], // point from which the popup should open relative to the iconAnchor
+        "className": "dot"
+    },
     'id': bus.id,
     'moving': bus.attributes.direction_id,
     'occupancy': bus.attributes.occupancy_status,
-    'marker-color': '#26ad36',
-    'marker-size': 'small',
-    'icon-image': 'bus'
+    //'bikes': bus.included.bikes_allowed,
+    //'wheelchair': bus.included.wheelchair_accessible,
+    //'headsign': bus.included.headsign
     }
     };
     
+    
+
     markers.push(marker);
     }
 
@@ -137,5 +170,18 @@ function setMarker(marker, bus){
 
     
 }
-
+function getDescription(e){
+    let occupancy = e.features[0].properties.occupancy;
+    let headsign = e.features[0].properties.headsign;
+    let handicap = e.features[0].properties.wheelchair_accessible;
+    let bikes = e.features[0].properties.bikes_allowed;
+    let description = /* "Destination: " + headsign + " " + */occupancy + " ";
+    if (handicap == 1){
+        description += "Handicap accessible ";
+    }
+    if (bikes == 1){
+        description += "Bikes allowed "
+    }
+    return description;
+}
 window.onload = init();
