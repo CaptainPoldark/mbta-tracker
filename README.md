@@ -8,7 +8,7 @@ https://captainpoldark.github.io/mbta-tracker/
 This javascript app will display the position of all mass transit busses in the City of Boston bay area in realtime.
 
 ### Features
-Hover over any bus to see the current occupancy status.
+Hover over any bus to see the current destination, occupancy status, stop number, handicap access, and if bikes are allowed.
 Use the radio buttons in the top left area of the map to change the style dynamically.
 
 #### Files needed:
@@ -17,7 +17,7 @@ mbtaBusTracker.js
 assets\styles\styles.css
 
 ### Version
-v1.7
+v1.8
 
 ### Roadmap
 Icons will change depending on whether the bus is moving or stopped.
